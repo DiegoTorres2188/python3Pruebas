@@ -1,16 +1,11 @@
 import sqlite3
-from typing import Optional
 
 
 class Category:
 
-    def __init__(self, id Optional, name):
+    def __init__(self, id, name):
         self.id = id
         self.name = name
-        if self.id == None:
-            self.id = input("Ingrese un Id: ")
-        if self.name == None:
-            self.name = input("Ingrese un nombre de Categoria: ")
 
     def __str__(self):
         return "Id: {} >>>>> Nombre: {}".format(self.id, self.name)

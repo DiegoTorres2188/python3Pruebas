@@ -38,7 +38,9 @@ class AplicationOptions:
 
     def option(self, optionEntered):
         if optionEntered == "1":
-            category = Category()
+            id = input("Ingrese un Id: ")
+            name = input("Ingrese un nombre de Categoria: ")
+            category = Category(id, name)
             categories = Categories()
             categories.addCategory(category)
             print("Se ha agregado la categoría")
