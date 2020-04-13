@@ -1,6 +1,7 @@
 import sqlite3
 
-from Category import Category, Categories
+from Category import Category, Categories, addCategory
+from Dish import Dish, addDish
 
 
 class OptionAplication():
@@ -41,8 +42,18 @@ class AplicationOptions:
             id = input("Ingrese un Id: ")
             name = input("Ingrese un nombre de Categoria: ")
             category = Category(id, name)
-            categories = Categories()
-            categories.addCategory(category)
+            addCategory(category)
             print("Se ha agregado la categoría")
-        if optionEntered == "2":
-            pass
+        elif optionEntered == "2":
+            categories = Categories()
+            Categories.showAllCategories(categories)
+        elif optionEntered == "3":
+            categories = Categories()
+            Categories.showAllCategories(categories)
+            categoryId = input("Ingrese el Id de la categoría donde quiere ingresar el plato: ")
+            name = input("Ingrese un nombre del Plato: ")
+            description = input("Ingrese una descripción completa del plato: ")
+            price = input("Ingrese el precio del plato: ")
+            dish = Dish(name, description, price, categoryId)
+            addDish(dish)
+            print("Se ha agregado el plato {}.".format(name))

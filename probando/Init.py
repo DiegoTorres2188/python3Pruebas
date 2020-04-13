@@ -61,5 +61,15 @@ class Init:
         except:
             pass
 
+        try:
+            connection = sqlite3.connect("prueba.db")
+            cursor = connection.cursor()
+            cursor.execute(
+                "CREATE TABLE dishes ('name' VARCHAR PRIMARY KEY, 'description' VARCHAR NOT NULL, 'price' VARCHAR NOT NULL, 'categoryId' VARCHAR NOT NULL, FOREIGN KEY (categoryId) REFERENCES categories(id))")
+            connection.commit()
+            connection.close()
+        except:
+            pass
+
 
 Init()

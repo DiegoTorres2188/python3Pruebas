@@ -30,6 +30,10 @@ class Users:
                 self.users.append(User(user[0], user[1], user[2]))
             return self.users
 
+    def __str__(self):
+        for u in self.users:
+            print(u)
+
 
 def addUser(user):
     try:
